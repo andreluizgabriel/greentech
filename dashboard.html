@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Dinâmico</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Espaçamento entre os blocos */
+            padding: 20px;
+            box-sizing: border-box;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .logo {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 20px;
+            flex-basis: 100%;
+        }
+
+        .dashboard-section {
+            margin-bottom: 40px;
+            flex-basis: calc(33.333% - 20px); /* Calcula a largura de cada bloco com base no número de blocos e espaçamento */
+        }
+
+        .dashboard-section h3 {
+            color: #333;
+        }
+
+        .dashboard-section p {
+            color: #555;
+        }
+
+        .data-list,
+        .chart-container {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .data-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="dashboard-section">
+        <img src="caminho/para/sua/logo.png" alt="Logo da Empresa" class="logo">
+        <div class="dashboard-header">
+            <h2>Dashboard Dinâmico</h2>
+            <p>Bem-vindo ao seu painel de controle.</p>
+        </div>
+    </div>
+
+    <div class="dashboard-section">
+        <h3>Projetos</h3>
+        <ul class="data-list" id="projects-list"></ul>
+        <div class="chart-container">
+            <canvas id="projects-chart-pie" width="400" height="200"></canvas>
+            <canvas id="projects-chart-bar" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <div class="dashboard-section">
+        <h3>Feedbacks</h3>
+        <ul class="data-list" id="feedbacks-list"></ul>
+        <div class="chart-container">
+            <canvas id="feedbacks-chart-pie" width="400" height="200"></canvas>
+            <canvas id="feedbacks-chart-bar" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <div class="dashboard-section">
+        <h3>Contatos</h3>
+        <ul class="data-list" id="contacts-list"></ul>
+        <div class="chart-container">
+            <canvas id="contacts-chart-pie" width="400" height="200"></canvas>
+            <canvas id="contacts-chart-bar" width="400" height="200"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+    const projectsData = [
+        { name: 'Projeto 1', status: 'Concluído' },
+        { name: 'Projeto 2', status: 'Em Andamento' },
+        { name: 'Projeto 3', status: 'Atrasado' }
+    ];
+
+    const feedbacksData = [
+        { user: 'Usuário 1', type: 'Sugestão', message: 'Ótima aplicação!' },
+        { user: 'Usuário 2', type: 'Problema', message: 'Encontrei um bug.' },
+        { user: 'Usuário 3', type: 'Elogio', message: 'Excelente atendimento!' }
+    ];
+
+    const contactsData = [
+        { name: 'Contato 1', email: 'contato1@example.com', phone: '123-456-7890' },
+        { name: 'Contato 2', email: 'contato2@example.com', phone: '987-654-3210' },
+        { name: 'Contato 3', email: 'contato3@example.com', phone: '555-123-4567' }
+    ];
+
+    function renderData(data, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+
+        data.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.className = 'data-item';
+            listItem.innerHTML = `<strong>${item.name || item.user}</strong> - ${item.status || item.type || item.email}`;
+            container.appendChild(listItem);
+        });
+    }
+
+    renderData(projectsData, 'projects-list');
+    renderData(feedbacksData, 'feedbacks-list');
+    renderData(contactsData, 'contacts-list');
+
+    function createPieChart(data, canvasId, label) {
+        const ctx = document.getElementById(canvasId).getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: data.map(item => item.name || item.user),
+                datasets: [{
+                    label: label,
+                    data: data.map(item => 1), // Valor fixo para pizza chart
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#66ff66', '#993366'],
+                    borderWidth: 1
+                }]
+            }
+        });
+    }
+
+    function createBarChart(data, canvasId, label) {
+        const ctx = document.getElementById(canvasId).getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.map(item => item.name || item.user),
+                datasets: [{
+                    label: label,
+                    data: data.map(item => 1), // Valor fixo para bar chart
+                    backgroundColor: '#36A2EB',
+                    borderColor: '#36A2EB',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    createPieChart(projectsData, 'projects-chart-pie', 'Status dos Projetos');
+    createBarChart(projectsData, 'projects-chart-bar', 'Status dos Projetos');
+
+    createPieChart(feedbacksData, 'feedbacks-chart-pie', 'Tipos de Feedbacks');
+    createBarChart(feedbacksData, 'feedbacks-chart-bar', 'Tipos de Feedbacks');
+
+    createPieChart(contactsData, 'contacts-chart-pie', 'Informações de Contato');
+    createBarChart(contactsData, 'contacts-chart-bar', 'Informações de Contato');
+</script>
+
+</body>
+</html>
