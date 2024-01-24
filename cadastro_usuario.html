@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scripts.js">
     <title>Página de Cadastro</title>
     <style>
         body {
@@ -97,22 +98,36 @@
         <div class="form-group">
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name"
-            placeholder="Digite seu nome" required>
+            placeholder="Digite seu nome">
         </div>
         <div class="form-group">
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+            <input type="email" id="email" name="email" placeholder="Digite seu email">
         </div>
         <div class="form-group">
             <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha">
         </div>
         <div class="form-group">
-            <button><a href="./index.html">Voltar</a></button>
-            <button><a href="./index.html">Cadastrar</a></button>
+            <button onclick="goBack()">Voltar</a></button>
+            <button onclick="cadastrarAlert();goBack()">Cadastrar</a></button>
         </div>
     </form>
 </div>
+
+<script>
+    function goBack() {
+        window.history.back()
+    }
+
+    function feedbackAlert() {
+        alert ("Feedback enviado!")
+    }
+    
+    function cadastrarAlert() {
+        alert ("Usuário cadastrado com sucesso!")
+    }
+</script>
 
 </body>
 </html>

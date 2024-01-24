@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scripts.js">
     <title>Página de Suporte</title>
     <style>
         body {
@@ -67,6 +68,12 @@
             resize: vertical; /* Permite redimensionar verticalmente apenas */
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         .form-group button {
             background-color: #3498db;
             color: #fff;
@@ -112,10 +119,28 @@
             <textarea id="message" name="message" rows="4" required></textarea>
         </div>
         <div class="form-group">
-            <button type="submit">Enviar Mensagem</button>
+            <button type="button" onclick="goBack();suporteAlert();">Enviar Mensagem</a></button>
         </div>
     </form>
 </div>
+
+<script>
+    function goBack() {
+        window.history.back()
+    }
+
+    function feedbackAlert() {
+        alert ("Feedback enviado!")
+    }
+    
+    function cadastrarAlert() {
+        alert ("Usuário cadastrado com sucesso!")
+    }
+
+    function suporteAlert() {
+        alert ("Mensagem enviada com sucesso!")
+    }
+</script>
 
 </body>
 </html>

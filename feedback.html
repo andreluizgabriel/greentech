@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scripts.js">
     <title>Página de Feedback</title>
     <style>
         body {
@@ -69,6 +70,12 @@
             resize: vertical; /* Permite redimensionar verticalmente apenas */
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         .form-group button {
             background-color: #0F6318;
             color: #fff;
@@ -99,15 +106,15 @@
         <div class="form-group">
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name"
-            placeholder="Digite seu nome" required>
+            placeholder="Digite seu nome" >
         </div>
         <div class="form-group">
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" >
         </div>
         <div class="form-group">
             <label for="feedback-type">Tipo de Feedback:</label>
-            <select id="feedback-type" name="feedback-type" required>
+            <select id="feedback-type" name="feedback-type" >
                 <option value="duvida">Dúvida</option>
                 <option value="problema">Problema</option>
                 <option value="sugestao">Sugestão</option>
@@ -117,18 +124,32 @@
         </div>
         <div class="form-group">
             <label for="satisfaction-rating">Avaliação de Satisfação (de 1 a 5):</label>
-            <input type="number" id="satisfaction-rating" name="satisfaction-rating" min="1" max="5" required>
+            <input type="number" id="satisfaction-rating" name="satisfaction-rating" min="1" max="5" >
         </div>
         <div class="form-group">
             <label for="feedback-message">Mensagem de Feedback:</label>
-            <textarea id="feedback-message" name="feedback-message" rows="4" placeholder="Dê sua opnião" required></textarea>
+            <textarea id="feedback-message" name="feedback-message" rows="4" placeholder="Dê sua opnião" ></textarea>
         </div>
         <div class="form-group">
-            <button type="submit">Voltar</button>
-            <button type="submit">Enviar Feedback</button>
+            <button type="button" onclick="goBack()">Voltar</button>
+            <button type="button" onclick="goBack();feedbackAlert();">Enviar Feedback</button>
         </div>
     </form>
 </div>
+
+<script>
+    function goBack() {
+        window.history.back()
+    }
+
+    function feedbackAlert() {
+        alert ("Feedback enviado!")
+    }
+    
+    function cadastrarAlert() {
+        alert ("Usuário cadastrado com sucesso!")
+    }
+</script>
 
 </body>
 </html>

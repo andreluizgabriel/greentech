@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Dinâmico</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./scripts.js">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,6 +60,22 @@
             margin: 0;
         }
 
+        button {
+            background-color: #0F6318;
+            color: #fff;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         .data-item {
             margin-bottom: 10px;
             padding: 10px;
@@ -72,6 +89,8 @@
 <div class="dashboard-container">
     <center>
     <div class="dashboard-section">
+        <button type="button"><a href="./cadastro_projeto.html">Cadastrar Projeto</a></button>
+        <button type="button"><a href="./listagem_projeto.html">Projetos</a></button>
         <img src="IMAGES/Greentech - Logo.png" alt="Logo da Empresa" class="logo">
         <div class="dashboard-header">
             <h2>Dashboard Dinâmico</h2>
@@ -152,6 +171,19 @@
 
     createPieChart(projectsData, 'projects-chart-pie', 'Status dos Projetos');
     createBarChart(projectsData, 'projects-chart-bar', 'Status dos Projetos');
+
+    function goBack() {
+        window.history.back()
+    }
+    
+    function feedbackAlert() {
+        alert ("Feedback enviado!")
+    }
+    
+    function cadastrarAlert() {
+        alert ("Usuário cadastrado com sucesso!")
+    }
+
 </script>
 
 </body>
