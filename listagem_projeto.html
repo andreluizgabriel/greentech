@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Projetos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .project-list {
+            max-width: 800px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .project-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .project-card h3 {
+            color: #333;
+        }
+
+        .project-card p {
+            color: #555;
+        }
+
+        .project-card span {
+            font-weight: bold;
+        }
+
+        .logo {
+            max-width: 50px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .edit-button {
+            background-color: #3498db;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .delete-button {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .project-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="project-list">
+    <div class="project-card">
+        <img src="IMAGES/Greentech - Logo.png" alt="Logo do Projeto 1" class="logo">
+        <h3>Projeto 1</h3>
+        <p>Descrição do Projeto 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p><span>Data de Início:</span> 01/01/2024</p>
+        <div class="actions">
+            <button class="action-button edit-button">Editar</button>
+            <button class="action-button delete-button">Excluir</button>
+        </div>
+    </div>
+    <div class="project-card">
+        <img src="IMAGES/Greentech - Logo.png" alt="Logo do Projeto 2" class="logo">
+        <h3>Projeto 2</h3>
+        <p>Descrição do Projeto 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p><span>Data de Início:</span> 15/02/2024</p>
+        <div class="actions">
+            <button class="action-button edit-button">Editar</button>
+            <button class="action-button delete-button">Excluir</button>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="action-button edit-button">Voltar</button>
+       
+    </div>
+    <!-- Adicione mais cards conforme necessário -->
+</div>
+
+</body>
+</html>
