@@ -19,17 +19,18 @@
         .feedback-container {
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(49, 102, 3, 0.908);
             overflow: hidden;
             max-width: 400px;
             width: 100%;
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
+            font-size: 25px;
         }
 
         .feedback-container h2 {
-            color: #333;
+            color: #4a9c3d;
         }
 
         .logo {
@@ -47,9 +48,9 @@
         }
 
         .form-group label {
-            font-size: 14px;
+            font-size: 20px;
             margin-bottom: 8px;
-            color: #555;
+            color: #4a9c3d;
         }
 
         .form-group input,
@@ -58,9 +59,10 @@
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            border: 1px solid #0F6318;
+            border-radius: 15px;
             font-size: 16px;
+            color: rgb(117, 117, 117)
         }
 
         .form-group textarea {
@@ -68,13 +70,17 @@
         }
 
         .form-group button {
-            background-color: #3498db;
+            background-color: #4a9c3d;
             color: #fff;
             padding: 10px;
-            border: none;
-            border-radius: 4px;
+            border: 1px solid #000000;
+            border-radius: 15px;
             cursor: pointer;
             font-size: 16px;
+        }
+
+        .form-group button:hover{
+            background-color: #0b4a11;
         }
 
         @media (max-width: 600px) {
@@ -85,18 +91,19 @@
     </style>
 </head>
 <body>
-    
+
 <div class="feedback-container">
     <img src="IMAGES/Greentech - Logo.png" alt="Logo da Empresa" class="logo">
     <h2>Dê seu Feedback</h2>
     <form class="feedback-form">
         <div class="form-group">
             <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name"
+            placeholder="Digite seu nome" required>
         </div>
         <div class="form-group">
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
         </div>
         <div class="form-group">
             <label for="feedback-type">Tipo de Feedback:</label>
@@ -114,7 +121,7 @@
         </div>
         <div class="form-group">
             <label for="feedback-message">Mensagem de Feedback:</label>
-            <textarea id="feedback-message" name="feedback-message" rows="4" required></textarea>
+            <textarea id="feedback-message" name="feedback-message" rows="4" placeholder="Dê sua opnião" required></textarea>
         </div>
         <div class="form-group">
             <button type="submit">Voltar</button>
