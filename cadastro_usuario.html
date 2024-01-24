@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Login</title>
+    <title>Página de Cadastro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,7 +16,7 @@
             height: 100vh;
         }
 
-        .login-container {
+        .signup-container {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -28,7 +28,7 @@
             text-align: center;
         }
 
-        .login-container h2 {
+        .signup-container h2 {
             color: #333;
         }
 
@@ -37,7 +37,7 @@
             margin-bottom: 20px;
         }
 
-        .login-form {
+        .signup-form {
             display: flex;
             flex-direction: column;
         }
@@ -72,7 +72,7 @@
         }
 
         @media (max-width: 600px) {
-            .login-container {
+            .signup-container {
                 max-width: 100%;
             }
         }
@@ -80,20 +80,23 @@
 </head>
 <body>
 
-<div class="login-container">
+<div class="signup-container">
     <img src="IMAGES/Greentech - Logo.png" alt="Logo da Empresa" class="logo">
-    <h2>Login</h2>
-    <form class="login-form">
+    <h2>Cadastro de Usuário</h2>
+    <form class="signup-form">
         <div class="form-group">
-            <label for="username">Usuário:</label>
-            <input type="text" id="username" name="username" required>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
             <label for="password">Senha:</label>
             <input type="password" id="password" name="password" required>
         </div>
         <div class="form-group">
-            <button type="submit">Entrar</button>
             <button type="submit">Cadastrar</button>
         </div>
     </form>
